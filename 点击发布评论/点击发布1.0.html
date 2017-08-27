@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../react-15.3.1/build/react.js"></script>
+    <script src="../react-15.3.1/build/react-dom.js"></script>
+    <script src="../react-15.3.1/build/browser.js"></script>
+</head>
+<body>
+    <div id="demo"></div>
+    <script type="text/babel">
+        var ListComment=React.createClass({
+            render:function(){
+                return (
+                    <ul>
+                        <li>111</li>
+                        {
+                            this.props.listArr.map(function(item,index){
+                                return <li key={index}>{item}</li>
+                            })
+                        }
+                    </ul>
+                )
+            }
+        });
+
+        var FirstComment=React.createClass({
+            getInitialState:function(){
+                return{
+                    mes:this.props.value,
+                    listArr:this.props.listArr
+                }
+            },
+            render:function(){
+                return(
+                    <div>
+                        <h1>{this.props.title}</h1>
+                        <input type="text" value={this.state.mes} onChange={this.changeHandle}/>
+                        <input type="button" onClick={this.addItemHandle} value={this.props.sendName}/>
+                        <p>{this.state.mes}</p>
+                        <ListComment listArr={this.state.listArr}/>
+                    </div>
+                )
+            },
+            changeHandle:function(ev){
+                this.setState({mes:ev.target.value})
+            },
+            addItemHandle:function(){
+                var value=this.state.mes;
+                if(value!=""){
+                    var newArr=this.state.listArr.concat([value]);
+                this.setState({listArr:newArr})
+                }
+                
+            }
+
+        });
+
+        var obj={
+            title:'欢迎来到',
+            sendName:"提交",
+            value:"请输入字段",
+            listArr:[1,2,3,4,5,6,7,8]
+        };
+        
+        ReactDOM.render(
+            <FirstComment {...obj}/>,
+            document.getElementById("demo"),
+            function(){
+                console.log("页面渲染完成");
+            }
+        );
+    </script>
+</body>
+</html>

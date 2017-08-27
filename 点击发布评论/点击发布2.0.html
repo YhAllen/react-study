@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <style type="text/css">
+                .down_select{
+                    height: 20px;
+                    background: #fff;
+                    width: 60px;
+                    color: #000;
+                }
+                .handle {
+                    width: 40px;
+                    border:1px solid #ccc;
+                    background: #fff;
+                    position: absolute;
+                    right: 10px;
+                    top:1px;
+                    text-align: center;
+                }
+
+                .handle a{
+                    display: block;
+                    text-decoration: none;
+                }
+                .list-group-item .centence{
+                    padding: 0px 50px;
+                }
+                .user{
+                    font-size: 22px;
+                }
+                .reply {
+                    margin-top: 0px;
+                }
+                .list-group li {
+                    transition: .5s;
+                    overflow: hidden;
+                }
+            </style>
+    <script src="../react-15.3.1/build/react.js"></script>
+    <script src="../react-15.3.1/build/react-dom.js"></script>
+    <script src="../react-15.3.1/build/browser.js"></script>
+    <script src="pubsub.js"></script>
+</head>
+<body>
+    <header class="site-header jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>欢迎</h1>
+                    <p class="lead">哈哈哈</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="demo"></div>
+    <script type="text/babel" src="demo.js">
+    </script>
+</body>
+</html>
